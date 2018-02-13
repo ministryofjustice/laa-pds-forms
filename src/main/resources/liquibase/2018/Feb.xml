@@ -1,8 +1,122 @@
-<databaseChangeLog xmlns='http://www.liquibase.org/xml/ns/dbchangelog'
-  xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'
-  xsi:schemaLocation='http://www.liquibase.org/xml/ns/dbchangelog
-    http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd'>
-    
-  
- 
+<?xml version="1.0"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+
+	<changeSet id="001" author="ahussain">
+		<createSequence incrementBy="1" sequenceName="registration_id_seq"
+			startValue="100" />
+		<createSequence incrementBy="1" sequenceName="address_id_seq"
+			startValue="100" />
+
+		<createTable tableName="REGISTRATION_ADDRESS">
+			<column name="id" type="bigint" defaultValueSequenceNext="address_id_seq">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="ADDRESS_LINE_1" type="varchar(255)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ADDRESS_LINE_2" type="varchar(255)"></column>
+			<column name="ADDRESS_LINE_3" type="varchar(255)"></column>
+			<column name="ADDRESS_LINE_4" type="varchar(255)"></column>
+			<column name="POSTCODE" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+
+		<createTable tableName="REGISTRATION">
+			<column name="id" type="bigint" defaultValueSequenceNext="registration_id_seq">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="LAST_MODIFIED" type="datetime" />
+			<column name="LAST_MODIFIED_BY_USER" type="varchar(255)" />
+			<column name="VERSION" type="int" />
+			<column name="TITLE" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="SURNAME" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FORENAME" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="DOB" type="date">
+				<constraints nullable="false" />
+			</column>
+			<column name="AGE" type="int">
+				<constraints nullable="false" />
+			</column>
+			<column name="NI_NO" type="varchar(15)">
+				<constraints nullable="false" />
+			</column>
+			<column name="ADDRESS" type="bigint">
+				<constraints nullable="false" foreignKeyName="registration_address_to_address_fk"
+					referencedTableName="REGISTRATION_ADDRESS" referencedColumnNames="ID" />
+			</column>
+			<column name="EMPLOYMENT_STATUS" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="RELATIONSHIP_STATUS" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="TELEPHONE_NUMBER" type="varchar(20)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CORRESPONDENCE_ADDRESS" type="bigint">
+				<constraints nullable="false" foreignKeyName="correspondence_address_to_address_fk"
+					referencedTableName="REGISTRATION_ADDRESS" referencedColumnNames="ID" />
+			</column>
+			<column name="EXISTING_CLIENT" type="boolean">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="REQUEST_SPECIFIC_SOLICITY" type="boolean">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="ETHNICITY" type="varchar(50)" />
+
+			<column name="DISABILITY" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="NATIONALITY" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="POLICE_STATION" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="ALLEGATION" type="varchar">
+				<constraints nullable="false" />
+			</column>
+			<column name="PREVIOUS_CONVICTION" type="boolean">
+				<constraints nullable="false" />
+			</column>
+			<column name="VENUE" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="FUNDING" type="varchar(50)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CONFLICT_CHECK" type="boolean">
+				<constraints nullable="false" />
+			</column>
+			<column name="RISK_ASSESMENT" type="boolean">
+				<constraints nullable="false" />
+			</column>
+			<column name="NAME" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="DATE" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="CO_ACCUSED" type="varchar" />
+		</createTable>
+
+
+	</changeSet>
+
 </databaseChangeLog>
