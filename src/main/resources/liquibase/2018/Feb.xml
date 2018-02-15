@@ -52,7 +52,7 @@
 			<column name="NI_NO" type="varchar(15)">
 				<constraints nullable="false" />
 			</column>
-			<column name="ADDRESS" type="bigint">
+			<column name="ADDRESS_ID" type="bigint">
 				<constraints nullable="false" foreignKeyName="registration_address_to_address_fk"
 					referencedTableName="REGISTRATION_ADDRESS" referencedColumnNames="ID" />
 			</column>
@@ -65,7 +65,7 @@
 			<column name="TELEPHONE_NUMBER" type="varchar(20)">
 				<constraints nullable="false" />
 			</column>
-			<column name="CORRESPONDENCE_ADDRESS" type="bigint">
+			<column name="CORRESPONDENCE_ADDRESS_ID" type="bigint">
 				<constraints nullable="false" foreignKeyName="correspondence_address_to_address_fk"
 					referencedTableName="REGISTRATION_ADDRESS" referencedColumnNames="ID" />
 			</column>
@@ -110,7 +110,7 @@
 			<column name="NAME" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
-			<column name="DATE" type="varchar(100)">
+			<column name="DATE" type="date">
 				<constraints nullable="false" />
 			</column>
 			<column name="CO_ACCUSED" type="varchar" />
