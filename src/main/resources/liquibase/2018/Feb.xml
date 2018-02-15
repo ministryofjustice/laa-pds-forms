@@ -110,7 +110,7 @@
 			<column name="NAME" type="varchar(100)">
 				<constraints nullable="false" />
 			</column>
-			<column name="DATE" type="varchar(100)">
+			<column name="DATE" type="date">
 				<constraints nullable="false" />
 			</column>
 			<column name="CO_ACCUSED" type="varchar" />

@@ -68,7 +68,7 @@ public class Registration {
 	
 	private String name;
 	
-	private String date;
+	private LocalDate date;
 	
 	
 	public Integer getId() {
@@ -251,13 +251,6 @@ public class Registration {
 		this.name = name;
 	}
 
-	public String getDate() {
-		return date;
-	}
-
-	public void setDate(String date) {
-		this.date = date;
-	}
 
 	public Address getAddress() {
 		return address;
@@ -273,6 +266,14 @@ public class Registration {
 
 	public void setCorrespondenceAddress(Address correspondenceAddress) {
 		this.correspondenceAddress = correspondenceAddress;
+	}
+
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 
 	

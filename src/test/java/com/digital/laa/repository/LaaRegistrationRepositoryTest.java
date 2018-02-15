@@ -59,7 +59,7 @@ public class LaaRegistrationRepositoryTest {
 		registration.setConflictCheck(false);
 		registration.setRiskAssesment(false);
 		registration.setName("Test Name");
-		registration.setDate(LocalDate.now().toString());
+		registration.setDate(LocalDate.now());
 		
 		
 	
